@@ -1,0 +1,54 @@
+<%- include ('../../partials/header.ejs') %>
+ <%- include('../../partials/navbar.ejs') %>
+
+
+ <body>
+     <div class="container">
+         <hr>
+         <h2>Artigos</h2>
+         <a class="btn btn-success" href="/admin/articles/new">Criar artigo</a>
+        <hr>
+         <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Slug</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% articles.forEach(article=>{ %>
+                <tr>
+                    <th scope="row"><%= article.id %></th>
+                    <td><%= article.title %></td>
+                    <td><%= article.slug %></td>
+                    <td><%= article.category.title %></td>
+                    
+                  <td>
+                    <a href="/admin/articles/edit/<%= article.id %>"
+                      ><button class="btn btn-warning btn-sm ms-5">Editar</button></a
+                    >
+                    <form 
+                    action="/articles/delete"
+                    method="post"
+                    onsubmit="confirmarDelecaoArtigo(event, this)"
+                   style="display: inline"
+                    class="form-btn">
+        
+                      <input type="hidden" name="id" value="<%=article.id %>" />
+                      <button class="btn btn-danger btn-sm" type="submit">Excluir</button>
+                    </form>
+
+                  </td>
+                  
+              <%})%>
+            </tbody>
+          </table>
+
+     </div>
+ </body>
+<%- include ('../../partials/footer.ejs') %>
+
+<script src="/js/main.js"></script>

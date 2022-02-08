@@ -1,0 +1,64 @@
+<%- include ('../../partials/header.ejs') %> <%- include
+('../../partials/navbar.ejs') %>
+
+<body>
+  <div class="container">
+    <div class="card header-category">
+      
+        <div class="card-header">
+        <h2>Editar artigo</h2>
+      </div>
+
+      <div class="card-body">
+        <form method="POST" action="/articles/update">
+
+            <input type="hidden" name="id" value="<%=article.id%>" id="">
+          <label for="">Titulo:</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="defina o titulo do artigo"
+            name="title"
+            value="<%= article.title %>"
+            required
+          /><br />
+
+          <textarea
+            class="form-control"
+            placeholder="Escreva o seu artigo"
+            cols="30"
+            rows="10"
+            name="body"
+            id="article"
+            class="tinymce"
+          >
+        <%= article.body%>
+        </textarea>
+          <label class="label-form">Escolha a categoria</label>
+          <select name="category" class="form-control select-category">
+            <% categories.forEach((category) =>{ %> <%if(category.id ==
+            article.categoryId){%>
+            <option value="<%= category.id %>" selected
+              ><%= category.title %></option
+            >
+            <%}else{%>
+            <option value="<%= category.id %>"><%= category.title %></option>
+            <% }%> <% }) %>
+          </select>
+  
+          <button class="btn btn-primary btn-sm btn-form btn-textarea">
+            Atualizar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+ 
+</body>
+
+<%- include ('../../partials/footer.ejs') %>
+
+<script src="/tinymce/tinymce.min.js"></script>
+
+<script src="/js/tinymce.js"></script>

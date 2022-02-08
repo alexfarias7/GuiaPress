@@ -1,0 +1,51 @@
+<%- include ('../../partials/header.ejs') %> <%-
+include('../../partials/navbar.ejs') %>
+
+<body>
+  <div class="container">
+    <hr />
+    <h2>Categorias</h2>
+    <a class="btn btn-success" href="/admin/categories/new">Criar categoria</a>
+    <hr />
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Slug</th>
+          <th scope="col" class="w-action">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% categories.forEach(category=>{%>
+        <tr>
+          <th scope="row"><%= category.id %></th>
+          <td><%= category.title %></td>
+          <td><%= category.slug %></td>
+
+          <td class="btn-action">
+            <a href="/admin/categories/edit/<%= category.id %>"
+              ><button class="btn btn-warning btn-sm">Editar</button></a
+            >
+
+            <form 
+            action="/categories/delete" 
+            method="post"
+            onsubmit="confirmarDelecao(event, this)"
+
+            class="form-btn">
+
+              <input type="hidden" name="id" value="<%=category.id %>" />
+              <button class="btn btn-danger btn-sm" type="submit">Excluir</button>
+            </form>
+          </td>
+        </tr>
+
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+<%- include ('../../partials/footer.ejs') %>
+<!-- * script do projeto -->
+<script src="/js/main.js"></script>

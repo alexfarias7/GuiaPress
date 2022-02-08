@@ -1,0 +1,70 @@
+.header-category{
+    margin-top: 10px;
+}
+
+.form-btn{
+  display: inline-block;
+  margin-left: 2em;
+}
+.btn-action{
+ display: flex;
+
+ align-content: center;
+ justify-content: center;
+ 
+}
+.w-action{
+  width: 15vw;
+}
+thead, th{
+    text-align: center;
+}
+.btn-textarea{
+  margin-top: 1em 0em;
+}
+.label-form{
+  margin:1em 0;
+  margin-bottom: 0;
+  font-size: 1.5em;
+}
+
+.card-home{
+  margin-bottom: 1em;
+}
+
+.select-category{
+  margin: 1em 0;
+
+}
+.container-home {
+  margin: 2em 0;
+}
+
+.txt-home{
+   text-align: center;
+}
+.txt-btn{
+  text-align: left;
+}
+
+
+.btn-footer {
+margin: 1em 0;
+
+}
+.card-page{
+  margin: 1em 0;
+}
+
+.card-page-next{
+  margin: 1em 1em;
+}
+
+.btn-footer-page{
+  margin: 1em 1em
+  
+}
+
+.btn-page-num{
+  margin-right: 1em;
+}

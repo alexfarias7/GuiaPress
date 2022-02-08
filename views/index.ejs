@@ -1,0 +1,42 @@
+
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/homenavbar.ejs') %>
+
+<body>
+  <div class="container ">
+        <div class="h-100  p-5   bg-light border rounded-3 container-home ">
+          <h1 class="display-4 txt-home">GuiaPress</h1>
+          <p class="lead txt-home" >Forum de perguntas e respostas sobre duvidas de liguagens de programação</p>
+          <button class="btn btn-outline-success txt-btn" href="#" type="button">Leia mais</button>
+        </div>
+      
+
+    
+    <% articles.forEach(article=>{ %>
+        <div class="card card-page">
+            <div class="card-header">
+                <h1><%= article.title %></h1>
+            </div>
+
+            <div class="card-body card-home">
+                <a  href='/<%= article.slug %>' class="btn btn-outline-success"> Ler artigo</a>
+ 
+
+            </div>
+        </div>  
+      <%})%>
+
+      <nav aria-label="..." class="btn-footer ">
+        
+
+        <ul class="pagination justify-content-end">
+          <li class="page-item ">
+            <a class="btn btn-outline-primary" href="/articles/page/2">Próxima página</a>
+          </li>
+          
+        </ul>
+      </nav>
+  </div>
+</body>
+
+<%- include ('partials/footer.ejs') %>
